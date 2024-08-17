@@ -1,0 +1,741 @@
+/* Global Settings */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Color Variables */
+:root {
+    --bg-color: #00070a;
+    --second-bg-color: #0F4C75;
+    --text-color: #fff;
+    --main-color: #6ebcf0;
+}
+
+/* Base Styles */
+html {
+    font-size: 62.5%; /* 1rem = 10px, 10/16 = 62.5% */
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1.6rem; /* 16px */
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.4rem 12%;
+    background-color: rgba(0, 7, 10, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    text-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color), 0 0 75px var(--main-color);
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a:active {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+}
+
+/* Home Section */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+    padding-top: 10rem;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    margin-top: 3rem;
+}
+
+.home-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+
+.home-content h3 {
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    font-size: 4rem;
+}
+
+.home-img img {
+    width: 30vw;
+    max-width: 400px;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+
+.home-img img:hover {
+    box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color), 0 0 100px var(--main-color);
+}
+
+.home-content p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 1000px;
+    margin-top: 2rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: transparent;
+    border: 2px solid var(--main-color);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease-in-out;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--main-color);
+    background-color: transparent;
+    border: 2px solid var(--main-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--main-color);
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.btn-group a:nth-of-type(2) {
+    background-color: black;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 25px transparent;
+}
+
+.btn-group a:nth-of-type(2):hover {
+    box-shadow: 0 0 25px;
+    background-color: var(--main-color);
+    color: black;
+}
+
+.text-animation {
+    font-size: 3.4rem;
+    font-weight: 600;
+    min-width: 28rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.text-animation span::before {
+    content: "";
+    color: var(--main-color);
+    animation: words 12s infinite;
+    display: block;
+    overflow: hidden;
+}
+
+.text-animation span::after {
+    content: "";
+    background-color: var(--bg-color);
+    height: 100%;
+    width: calc(100% + 8px);
+    position: absolute;
+    right: -8px;
+    border-left: 3px solid var(--bg-color);
+    animation: cursor 0.6s infinite, typing 12s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid var(--main-color);
+    }
+}
+
+@keyframes words {
+    0%, 20% {
+        content: "Back-end Developer'ım";
+    }
+    21%, 40% {
+        content: "Front-end Developer'ım";
+    }
+    41%, 60% {
+        content: "Full-stack Developer'ım";
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: calc(100% + 8px);
+    }
+}
+
+/* Education Section */
+.heading {
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+.education {
+    background-color: var(--bg-color);
+    padding: 10rem 1.5rem;
+}
+
+.timeline-items {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.timeline-items::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--main-color);
+    left: calc(50% - 1px);
+}
+
+.timeline-item {
+    margin-bottom: 4rem;
+    width: 100%;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item:nth-child(odd) {
+    padding-right: calc(50% + 3rem);
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(even) {
+    padding-left: calc(50% + 3rem);
+    animation-delay: 0.4s;
+}
+
+.timeline-dot {
+    height: 2.1rem;
+    width: 2.1rem;
+    background-color: var(--main-color);
+    box-shadow: 0 0 2.5rem var(--main-color), 0 0 5rem var(--main-color);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    top: 1rem;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timeline-date {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    margin: 6px 0 15px;
+}
+
+.timeline-content {
+    background-color: var(--bg-color);
+    border: 3px solid var(--main-color);
+    padding: 30px 50px;
+    border-radius: 4rem;
+    box-shadow: 0 0 10px var(--main-color);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.timeline-content:hover {
+    box-shadow: 0 0 25px var(--main-color);
+    transform: scale(1.05);
+}
+
+.timeline-content h3 {
+    font-size: 20px;
+    color: #fff;
+    margin: 0 0 10px;
+    font-weight: 500;
+}
+
+.timeline-content p {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: 4rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+    width: 50px;
+}
+
+.services {
+    background-color: var(--bg-color);
+    color: #fff;
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 4.8rem;
+    font-weight: 800;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    justify-items: center;
+}
+
+.service-box {
+    background-color: var(--main-color);
+    height: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+}
+
+.service-info {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.service-info h4 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.service-info p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 2.6rem;
+}
+
+.testimonials {
+    background-color: var(--bg-color);
+    color: #fff;
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 4.8rem;
+    font-weight: 800;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.testimonial-item {
+    min-height: 550px;
+    width: 400px; /* Aynı genişlikte olmalarını sağlamak için sabit bir genişlik tanımlıyoruz */
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 3px solid var(--main-color);
+    border-radius: 2rem;
+    margin: 0 1rem; /* Yatay boşluklar */
+    padding: 30px 60px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    color: #fff;
+    transition: 0.4s ease-in-out;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px var(--main-color);
+}
+
+.testimonial-item h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.testimonial-item p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 2.6rem;
+}
+
+.img-container {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--main-color);
+    box-shadow: 0 0 25px var(--main-color);
+    margin-bottom: 2rem;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Footer Section */
+footer {
+    background-color: var(--second-bg-color);
+    color: var(--text-color);
+    padding: 4rem 12%;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.footer-text {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2.6rem;
+}
+
+.footer-social-icons {
+    margin-top: 3rem;
+}
+
+.footer-social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--text-color);
+    margin: 0 1.5rem;
+    transition: 0.3s ease-in-out;
+}
+
+.footer-social-icons a:hover {
+    background-color: var(--text-color);
+    color: var(--second-bg-color);
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+    .home {
+        flex-direction: column;
+        gap: 8rem;
+        text-align: center;
+    }
+
+    .home-img img {
+        width: 50%;
+    }
+
+    .home-content {
+        align-items: center;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding: 0;
+    }
+
+    .testimonial-item {
+        margin: 0 1rem;
+    }
+
+    .services-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        padding: 2.4rem 5%;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        gap: 2rem;
+        position: absolute;
+        top: 10rem;
+        left: 0;
+        width: 100%;
+        padding: 2rem 0;
+        background-color: rgba(0, 7, 10, 0.3);
+        backdrop-filter: blur(10px);
+        z-index: 10;
+        text-align: center;
+        border-bottom: 3px solid var(--main-color);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    #menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .home-content h1 {
+        font-size: 4.5rem;
+    }
+
+    .home-content h3 {
+        font-size: 3rem;
+    }
+
+    .home-img img {
+        width: 70%;
+        max-width: 300px;
+    }
+
+    .text-animation {
+        font-size: 2.8rem;
+    }
+
+    .rating i {
+        color: gold; }
+}
+
+/* Contact Section */
+.contact {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.contact-content .heading {
+    font-size: 4.8rem;
+    font-weight: 800;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+.form-group {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--main-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--main-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--main-color);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    border: 2px solid var(--main-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    position: relative; /* Pozisyon belirleme */
+    overflow: hidden; /* Aşağıdaki ışık efektini göstermek için */
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4); /* Işık efekti rengi */
+    width: 300%;
+    height: 300%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.btn:hover::before {
+    width: 0;
+    height: 0;
+}
+
+.btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.btn:hover {
+    color: var(--main-color);
+    background-color: transparent;
+}
+
+.btn:hover span {
+    color: var(--text-color);
+}
